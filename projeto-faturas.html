@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gestão de Faturas por Filial — Caio Henrique Lopes da Silva</title>
+<meta name="description" content="Estudo de caso: sistema de gestão de faturas de TI por filial, com geração automática de e-mail para Suprimentos e Fiscal.">
+<link rel="stylesheet" href="projeto.css">
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <a class="back" href="index.html#projetos">← Voltar ao portfólio</a>
+    <span class="status">Uso interno · Em produção</span>
+    <h1>Gestão de Faturas por Filial</h1>
+    <p class="lede">
+      Central que dá visibilidade de ponta a ponta às faturas de TI — e gera, com um clique, o e-mail pronto
+      para o Suprimentos abrir a OC e para o Fiscal faturar a nota.
+    </p>
+    <div class="meta">
+      <div class="tags">
+        <span class="tag">JavaScript</span>
+        <span class="tag">File System Access API</span>
+        <span class="tag">Automação de e-mail</span>
+        <span class="tag">Multiusuário</span>
+      </div>
+      <div class="links">
+        <span class="pending">repositório a publicar</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+
+    <section class="block">
+      <h2>Contexto</h2>
+      <p>
+        O acompanhamento de faturas nasceu da necessidade de verificar as notas de forma mais ágil. Antes, era difícil
+        saber em que ponto cada fatura estava: quando ela chegou, quando foi enviada para outro setor, e quando voltou.
+        A ideia foi centralizar esse fluxo em um lugar só, de forma simples e fácil de acompanhar.
+      </p>
+      <p>
+        Um dos maiores ganhos foi a geração automática de e-mail: com o mínimo de esforço, o sistema cria a mensagem
+        para o Suprimentos gerar a OC e para o Fiscal faturar a nota — a partir de modelos configuráveis com variáveis
+        que são substituídas pelos dados de cada fornecedor.
+      </p>
+    </section>
+
+    <section class="block">
+      <h2>Destaques</h2>
+      <ul class="highlights">
+        <li><strong>Visibilidade ponta a ponta:</strong> saber quando a nota chegou, para qual setor foi enviada e o que já voltou.</li>
+        <li><strong>E-mail gerado com um clique:</strong> mensagem pronta para o Suprimentos abrir a OC e para o Fiscal faturar, com esforço mínimo.</li>
+        <li><strong>Modelos com variáveis:</strong> campos como <code>{fornecedor}</code>, <code>{valor_total}</code>, <code>{mes_referencia}</code> e <code>{qtd_ocs}</code> preenchidos automaticamente.</li>
+        <li><strong>Importação e recorrência:</strong> lançamento por planilha ou pasta e faturas recorrentes automáticas.</li>
+        <li><strong>Multiusuário sem servidor central:</strong> edição simultânea por várias pessoas, com resolução de conflito, direto sobre os arquivos.</li>
+      </ul>
+    </section>
+
+    <section class="block">
+      <h2>Telas</h2>
+      <div class="gallery">
+        <figure>
+          <img src="docs/screenshots/GerenciamentoFaturas/FaturasTelaIni.png" alt="Tela inicial com indicadores e lista de faturas" loading="lazy">
+          <figcaption>Tela inicial — indicadores do mês, filtros por filial/status/fluxo e ações rápidas.</figcaption>
+        </figure>
+        <figure>
+          <img src="docs/screenshots/GerenciamentoFaturas/FaturasFiscal.png" alt="Fluxo fiscal das faturas" loading="lazy">
+          <figcaption>Acompanhamento do fluxo fiscal das notas.</figcaption>
+        </figure>
+        <figure>
+          <img src="docs/screenshots/GerenciamentoFaturas/ModeloEmailFiscal.png" alt="Configuração do modelo de e-mail para o Fiscal" loading="lazy">
+          <figcaption>Modelo de e-mail para o Fiscal, com assunto e corpo baseados em variáveis.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Caio Henrique Lopes da Silva</span>
+    <a href="index.html#projetos">← Voltar ao portfólio</a>
+  </div>
+</footer>
+
+</body>
+</html>

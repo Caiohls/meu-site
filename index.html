@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Caio Henrique Lopes da Silva — Desenvolvedor & ERP</title>
+<meta name="description" content="Desenvolvedor com raiz em ERP. Portfólio de Caio Henrique Lopes da Silva — projetos, stack e contato.">
+<style>
+  :root{
+    --bg: #f6f7f9;
+    --bg-alt: #ffffff;
+    --ink: #1b2333;
+    --ink-soft: #4a5468;
+    --line: #e2e5ea;
+    --navy: #1e3a5f;
+    --navy-deep: #142943;
+    --accent: #3d6a94;
+    --tag-bg: #eef1f5;
+    --tag-ink: #33415a;
+    --radius: 10px;
+    --max: 980px;
+  }
+
+  *{ box-sizing: border-box; }
+
+  html{ scroll-behavior: smooth; }
+
+  body{
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    color: var(--ink);
+    background: var(--bg);
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a{ color: var(--accent); text-decoration: none; }
+  a:hover{ text-decoration: underline; }
+
+  .wrap{
+    max-width: var(--max);
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  header.hero{
+    background: linear-gradient(150deg, var(--navy-deep), var(--navy) 70%);
+    color: #f2f5f9;
+    padding: 96px 0 72px;
+  }
+
+  header.hero .wrap{ display: flex; flex-direction: column; gap: 18px; }
+
+  header.hero h1{
+    margin: 0;
+    font-size: clamp(1.9rem, 4vw, 2.6rem);
+    font-weight: 700;
+    letter-spacing: -0.01em;
+  }
+
+  header.hero p.tagline{
+    margin: 0;
+    font-size: clamp(1.05rem, 2vw, 1.25rem);
+    color: #c8d4e2;
+    max-width: 640px;
+  }
+
+  header.hero .links{
+    margin-top: 14px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+  }
+
+  header.hero .links a{
+    color: #eef3f8;
+    border: 1px solid rgba(255,255,255,0.28);
+    padding: 8px 16px;
+    border-radius: 999px;
+    font-size: 0.92rem;
+    transition: background 0.15s ease, border-color 0.15s ease;
+  }
+
+  header.hero .links a:hover{
+    background: rgba(255,255,255,0.08);
+    border-color: rgba(255,255,255,0.5);
+    text-decoration: none;
+  }
+
+  nav.subnav{
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: rgba(246,247,249,0.92);
+    backdrop-filter: saturate(180%) blur(6px);
+    border-bottom: 1px solid var(--line);
+  }
+
+  nav.subnav .wrap{
+    display: flex;
+    gap: 22px;
+    padding: 12px 24px;
+    font-size: 0.9rem;
+    overflow-x: auto;
+  }
+
+  nav.subnav a{ color: var(--ink-soft); white-space: nowrap; }
+  nav.subnav a:hover{ color: var(--navy); }
+
+  section{ padding: 64px 0; }
+
+  section h2{
+    font-size: 1.5rem;
+    margin: 0 0 8px;
+    color: var(--navy-deep);
+    letter-spacing: -0.01em;
+  }
+
+  section .section-intro{
+    color: var(--ink-soft);
+    margin: 0 0 32px;
+    max-width: 680px;
+  }
+
+  #sobre p{
+    max-width: 720px;
+    color: var(--ink-soft);
+    font-size: 1.02rem;
+  }
+
+  #sobre p strong{ color: var(--ink); }
+
+  .cards{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+  }
+
+  .card{
+    background: var(--bg-alt);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .card .thumb{
+    margin: -24px -24px 6px;
+    aspect-ratio: 16 / 9;
+    background: linear-gradient(135deg, #eef1f5, #dfe4ea);
+    border-radius: var(--radius) var(--radius) 0 0;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .card .thumb .ph{
+    color: #97a0b0;
+    font-size: 0.8rem;
+    letter-spacing: 0.02em;
+  }
+
+  .card .thumb img{
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .card .shots{
+    display: flex;
+    gap: 6px;
+    margin-top: -2px;
+  }
+
+  .card .shots button{
+    padding: 0;
+    width: 58px;
+    height: 36px;
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    overflow: hidden;
+    cursor: pointer;
+    background: none;
+    transition: border-color 0.15s ease;
+  }
+
+  .card .shots button:hover,
+  .card .shots button:focus-visible{
+    border-color: var(--accent);
+    outline: none;
+  }
+
+  .card .shots button img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .card h3{
+    margin: 0;
+    font-size: 1.15rem;
+    color: var(--navy-deep);
+  }
+
+  .card .status{
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--accent);
+    font-weight: 600;
+  }
+
+  .card p.desc{
+    margin: 0;
+    color: var(--ink-soft);
+    font-size: 0.95rem;
+    flex-grow: 1;
+  }
+
+  .card p.desc code{
+    background: var(--tag-bg);
+    color: var(--tag-ink);
+    padding: 1px 5px;
+    border-radius: 4px;
+    font-size: 0.85em;
+  }
+
+  .tags{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 4px;
+  }
+
+  .tag{
+    background: var(--tag-bg);
+    color: var(--tag-ink);
+    font-size: 0.76rem;
+    padding: 4px 10px;
+    border-radius: 999px;
+    font-weight: 500;
+  }
+
+  .card .card-links{
+    margin-top: 8px;
+    display: flex;
+    gap: 16px;
+    font-size: 0.88rem;
+  }
+
+  .card .card-links span.pending{
+    color: #8b93a4;
+    font-style: italic;
+  }
+
+  .skills-grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 24px;
+  }
+
+  .skills-group h3{
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--ink-soft);
+    margin: 0 0 12px;
+  }
+
+  .skills-group .tags .tag{ background: var(--bg-alt); border: 1px solid var(--line); }
+
+  footer{
+    padding: 40px 0 56px;
+    border-top: 1px solid var(--line);
+  }
+
+  footer .wrap{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 12px;
+    color: var(--ink-soft);
+    font-size: 0.88rem;
+  }
+
+  footer a{ color: var(--ink-soft); }
+
+  #contato .contact-box{
+    background: var(--bg-alt);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 28px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  #contato .contact-box a{
+    font-weight: 600;
+  }
+
+  @media (max-width: 600px){
+    header.hero{ padding: 72px 0 56px; }
+    section{ padding: 48px 0; }
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <h1>Caio Henrique Lopes da Silva</h1>
+    <p class="tagline">Desenvolvedor com raiz em ERP — construo software entendendo o processo de negócio por trás dele.</p>
+    <div class="links">
+      <a href="https://linkedin.com/in/caiohls" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://github.com/Caiohls" target="_blank" rel="noopener">GitHub</a>
+      <a href="mailto:caiohls2003@gmail.com">E-mail</a>
+    </div>
+  </div>
+</header>
+
+<nav class="subnav">
+  <div class="wrap">
+    <a href="#sobre">Sobre</a>
+    <a href="#projetos">Projetos</a>
+    <a href="#skills">Skills</a>
+    <a href="#contato">Contato</a>
+  </div>
+</nav>
+
+<main>
+
+  <section id="sobre">
+    <div class="wrap">
+      <h2>Sobre</h2>
+      <p>
+        Atuo há quase 3 anos em TI corporativa, hoje como Key User de Microsoft Dynamics 365 F&amp;O
+        na Aviagen América Latina — análise de requisitos, resolução de incidentes e participação em projeto de
+        implantação de ERP (segurança e gestão de usuários). Em paralelo, curso Engenharia da Computação na
+        Universidade São Francisco (conclusão prevista para dez/2026) e desenvolvo aplicações web full-stack.
+      </p>
+      <p>
+        Meu foco é desenvolvimento de software — é onde quero crescer. O diferencial que trago é a
+        vivência real de processos de negócio: sei ler, entender e traduzir a necessidade da operação
+        em software que resolve o problema de verdade, e não apenas o que foi pedido. Essa leitura de negócio vem de
+        anos operando e dando suporte a ERP (Dynamics 365 F&amp;O).
+      </p>
+    </div>
+  </section>
+
+  <section id="projetos">
+    <div class="wrap">
+      <h2>Projetos</h2>
+      <p class="section-intro">Projetos reais, com foco em resolver processos de negócio concretos.</p>
+      <div class="cards">
+
+        <div class="card">
+          <div class="thumb">
+            <span class="ph">imagem em breve</span>
+            <img src="docs/screenshots/gerentevent.png" alt="Tela do GerenteEvent" loading="lazy" onerror="this.remove()">
+          </div>
+          <span class="status">Produção</span>
+          <h3>GerenteEvent</h3>
+          <p class="desc">
+            Plataforma SaaS multi-tenant para gestão de eventos corporativos: convites por e-mail, confirmação de
+            presença, credencial com QR Code, check-in, certificado em PDF e dashboard de métricas por workspace.
+          </p>
+          <div class="tags">
+            <span class="tag">React</span>
+            <span class="tag">Vite</span>
+            <span class="tag">Supabase</span>
+            <span class="tag">PostgreSQL</span>
+            <span class="tag">Vercel</span>
+          </div>
+          <div class="card-links">
+            <a href="https://gerentevent.com" target="_blank" rel="noopener">Ver deploy</a>
+            <span class="pending">repositório privado</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="thumb">
+            <span class="ph">imagem em breve</span>
+            <img src="docs/screenshots/calculameta.png" alt="Tela do CalculaMeta" loading="lazy" onerror="this.remove()">
+          </div>
+          <span class="status">Produção</span>
+          <h3>CalculaMeta</h3>
+          <p class="desc">
+            Aplicação web que transforma meta mensal de vendas em meta diária acionável, com indicadores de ritmo,
+            aderência e risco de não bater a meta.
+          </p>
+          <div class="tags">
+            <span class="tag">Next.js</span>
+            <span class="tag">React</span>
+            <span class="tag">TypeScript</span>
+            <span class="tag">Supabase</span>
+          </div>
+          <div class="card-links">
+            <a href="https://calculametamo.vercel.app" target="_blank" rel="noopener">Ver deploy</a>
+            <a href="https://github.com/caiohls2000-lang/CalculaMetaMo" target="_blank" rel="noopener">Repositório</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="thumb">
+            <span class="ph">imagem em breve</span>
+            <img src="docs/screenshots/Inventario/InventTelaIni.png" alt="Dashboard do Sistema de Inventário de TI" loading="lazy" onerror="this.remove()">
+          </div>
+          <span class="status">Uso interno</span>
+          <h3>Sistema de Inventário de TI</h3>
+          <p class="desc">
+            Gestão de ativos de TI, budget de troca de equipamentos e termos de responsabilidade/vendas com
+            assinatura eletrônica, local-first e com resolução de conflito para uso simultâneo por vários usuários.
+          </p>
+          <div class="tags">
+            <span class="tag">JavaScript</span>
+            <span class="tag">File System Access API</span>
+            <span class="tag">Adobe Sign API</span>
+          </div>
+          <div class="card-links">
+            <a href="projeto-inventario.html">Ver projeto →</a>
+            <span class="pending">repositório a publicar</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="thumb">
+            <span class="ph">imagem em breve</span>
+            <img id="faturas-main" src="docs/screenshots/GerenciamentoFaturas/FaturasTelaIni.png" alt="Tela inicial da Gestão de Faturas" loading="lazy" onerror="this.remove()">
+          </div>
+          <div class="shots">
+            <button type="button" data-target="faturas-main" data-src="docs/screenshots/GerenciamentoFaturas/FaturasTelaIni.png" aria-label="Ver tela inicial">
+              <img src="docs/screenshots/GerenciamentoFaturas/FaturasTelaIni.png" alt="Tela inicial" loading="lazy">
+            </button>
+            <button type="button" data-target="faturas-main" data-src="docs/screenshots/GerenciamentoFaturas/FaturasFiscal.png" aria-label="Ver fluxo fiscal">
+              <img src="docs/screenshots/GerenciamentoFaturas/FaturasFiscal.png" alt="Fluxo fiscal" loading="lazy">
+            </button>
+            <button type="button" data-target="faturas-main" data-src="docs/screenshots/GerenciamentoFaturas/ModeloEmailFiscal.png" aria-label="Ver modelo de e-mail automático">
+              <img src="docs/screenshots/GerenciamentoFaturas/ModeloEmailFiscal.png" alt="Modelo de e-mail" loading="lazy">
+            </button>
+          </div>
+          <span class="status">Uso interno</span>
+          <h3>Gestão de Faturas por Filial</h3>
+          <p class="desc">
+            Lançamento, importação e acompanhamento de faturas de múltiplas filiais, com recorrência automática e
+            edição simultânea por vários usuários sem servidor central.
+          </p>
+          <div class="tags">
+            <span class="tag">JavaScript</span>
+            <span class="tag">File System Access API</span>
+          </div>
+          <div class="card-links">
+            <a href="projeto-faturas.html">Ver projeto →</a>
+            <span class="pending">repositório a publicar</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="thumb">
+            <span class="ph">imagem em breve</span>
+            <img src="docs/screenshots/etiquetas.png" alt="Tela do Gerador de Etiquetas" loading="lazy" onerror="this.remove()">
+          </div>
+          <span class="status">Utilitário</span>
+          <h3>Gerador de Etiquetas</h3>
+          <p class="desc">
+            Aplicativo desktop que gera etiquetas de identificação para eventos corporativos a partir de uma lista
+            de convidados em Excel, via mala direta sobre modelo Word.
+          </p>
+          <div class="tags">
+            <span class="tag">Python</span>
+            <span class="tag">Tkinter</span>
+            <span class="tag">openpyxl</span>
+          </div>
+          <div class="card-links">
+            <span class="pending">repositório a publicar</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="wrap">
+      <h2>Skills</h2>
+      <div class="skills-grid">
+        <div class="skills-group">
+          <h3>Uso no dia a dia</h3>
+          <div class="tags">
+            <span class="tag">JavaScript</span>
+            <span class="tag">Node.js</span>
+            <span class="tag">React (JSX)</span>
+            <span class="tag">PostgreSQL</span>
+            <span class="tag">APIs REST</span>
+            <span class="tag">SQL</span>
+            <span class="tag">Git</span>
+            <span class="tag">HTML</span>
+            <span class="tag">CSS</span>
+          </div>
+        </div>
+        <div class="skills-group">
+          <h3>Em aprendizado</h3>
+          <div class="tags">
+            <span class="tag">C# / .NET</span>
+          </div>
+        </div>
+        <div class="skills-group">
+          <h3>ERP</h3>
+          <div class="tags">
+            <span class="tag">Dynamics 365 F&amp;O</span>
+            <span class="tag">Dynamics AX 2012</span>
+            <span class="tag">Security Roles</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contato">
+    <div class="wrap">
+      <h2>Contato</h2>
+      <div class="contact-box">
+        <div>Campinas/SP, Brasil</div>
+        <a href="https://linkedin.com/in/caiohls" target="_blank" rel="noopener">linkedin.com/in/caiohls</a>
+        <a href="mailto:caiohls2003@gmail.com">caiohls2003@gmail.com</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Caio Henrique Lopes da Silva</span>
+    <a href="https://github.com/Caiohls" target="_blank" rel="noopener">github.com/Caiohls</a>
+  </div>
+</footer>
+
+<script>
+  document.querySelectorAll('.shots button').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var main = document.getElementById(btn.dataset.target);
+      if (main) main.src = btn.dataset.src;
+    });
+  });
+</script>
+
+</body>
+</html>
