@@ -2,17 +2,17 @@
 
 ## Software Engineer / Desenvolvedor de Software
 
-Construo software voltado para resolver problemas reais de negócio: sistemas corporativos internos, integrações de processos, aplicações web modernas e automações de alta eficiência.
+Crio aplicações web e ferramentas internas que ajudam a organizar processos, automatizar tarefas e conectar sistemas.
 
 ---
 
 ## Sobre
 
-Minha atuação na **Aviagen América Latina** me colocou em contato direto com a complexidade de sistemas corporativos, integrações de grande porte e fluxos operacionais críticos, tendo o ecossistema **Microsoft Dynamics 365 Finance & Operations** como base dessa rotina.
+Na **Aviagen América Latina**, trabalho no dia a dia com sistemas corporativos e áreas operacionais, principalmente no ambiente do **Microsoft Dynamics 365 Finance & Operations**.
 
-**É justamente a partir desse contato com a operação** que direciono meu trabalho como desenvolvedor. Mais do que apenas mapear necessidades do negócio, meu foco é transformá-las em software de alto nível — projetando arquiteturas sólidas, construindo APIs, modelando bancos de dados e desenvolvendo aplicações web e automações que resolvem gargalos reais com rigor técnico.
+Estar próximo da operação me ensinou a olhar primeiro para a necessidade de quem usa a ferramenta antes de pensar no código. Aproveito essa vivência no desenvolvimento para criar soluções práticas: aplicações web, ferramentas internas, APIs e automações que conectam dados e eliminam trabalho manual.
 
-**E para que essas soluções sustentem o dia a dia da empresa com consistência**, aplico em cada projeto um equilíbrio rigoroso entre qualidade de código, segurança, performance e facilidade de manutenção. O objetivo nunca é apenas entregar uma automação pontual, mas engenheirar sistemas confiáveis, limpos de manter e preparados para evoluir continuamente com o negócio.
+Nos meus projetos, me preocupo em escrever código limpo, organizado e fácil de manter. O objetivo é sempre entregar software útil, seguro e que resolva o problema de verdade, sem complicar o que pode ser simples.
 
 ---
 
