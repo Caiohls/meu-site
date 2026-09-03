@@ -1,92 +1,200 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Gestão de Faturas por Filial — Caio Henrique Lopes da Silva</title>
-<meta name="description" content="Estudo de caso: sistema de gestão de faturas de TI por filial, com geração automática de e-mail para Suprimentos e Fiscal.">
-<link rel="stylesheet" href="projeto.css">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Caio Henrique Lopes da Silva">
+    <meta name="description" content="Estudo de caso da Gestão de Faturas por Filial: aplicação corporativa interna para centralizar lançamentos, importação de dados e fluxo fiscal entre unidades operacionais.">
+    <meta name="theme-color" content="#f8fafc">
 
-<header class="hero">
-  <div class="wrap">
-    <a class="back" href="index.html#projetos">← Voltar ao portfólio</a>
-    <span class="status">Uso interno · Em produção</span>
-    <h1>Gestão de Faturas por Filial</h1>
-    <p class="lede">
-      Central que dá visibilidade de ponta a ponta às faturas de TI — e gera, com um clique, o e-mail pronto
-      para o Suprimentos abrir a OC e para o Fiscal faturar a nota.
-    </p>
-    <div class="meta">
-      <div class="tags">
-        <span class="tag">JavaScript</span>
-        <span class="tag">File System Access API</span>
-        <span class="tag">Automação de e-mail</span>
-        <span class="tag">Multiusuário</span>
+    <meta property="og:locale" content="pt_BR">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Gestão de Faturas por Filial — Caio Henrique Lopes da Silva">
+    <meta property="og:description" content="Centralização e automação da esteira de faturas e fluxo fiscal corporativo.">
+
+    <title>Gestão de Faturas por Filial — Caio Henrique Lopes da Silva</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="stylesheet" href="styles.css">
+
+    <script>
+      (function () {
+        const stored = localStorage.getItem('theme');
+        if (stored) {
+          document.documentElement.setAttribute('data-theme', stored);
+        } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+          document.documentElement.setAttribute('data-theme', 'dark');
+        } else {
+          document.documentElement.setAttribute('data-theme', 'light');
+        }
+      })();
+    </script>
+  </head>
+
+  <body>
+    <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+    <header class="site-header">
+      <div class="container site-nav">
+        <a class="brand" href="index.html" aria-label="Voltar para o início">
+          <span class="brand-mark" aria-hidden="true">CH</span>
+          <div class="brand-info">
+            <span class="brand-name">Caio Lopes</span>
+            <span class="brand-tag">Software Engineer</span>
+          </div>
+        </a>
+
+        <div class="nav-actions">
+          <nav aria-label="Navegação da página">
+            <a class="nav-back" href="index.html#projetos">← Voltar aos projetos</a>
+          </nav>
+
+          <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Alternar tema claro/escuro" title="Alternar tema">
+            <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="12" cy="12" r="5"></circle>
+              <line x1="12" y1="1" x2="12" y2="3"></line>
+              <line x1="12" y1="21" x2="12" y2="23"></line>
+              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+              <line x1="1" y1="12" x2="3" y2="12"></line>
+              <line x1="21" y1="12" x2="23" y2="12"></line>
+              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+            </svg>
+            <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+            </svg>
+          </button>
+        </div>
       </div>
-      <div class="links">
-        <span class="pending">repositório a publicar</span>
+    </header>
+
+    <header class="detail-hero">
+      <div class="container">
+        <a class="back-link" href="index.html#projetos">← Projetos selecionados</a>
+
+        <div class="detail-hero-grid">
+          <div>
+            <p class="eyebrow">Sistema Corporativo Interno · Esteira Fiscal</p>
+            <h1>Gestão de Faturas por Filial</h1>
+            <p class="detail-lede">
+              Uma aplicação corporativa para lançar, importar, conciliar e rastrear faturas recebidas por diferentes
+              filiais operacionais, estabelecendo uma ponte estruturada e confiável com o departamento fiscal central.
+            </p>
+          </div>
+          <div class="detail-hero-meta">
+            <span>Status</span>
+            <strong>Uso Corporativo Interno</strong>
+            <span>Arquitetura</span>
+            <strong>Local-First / Multiusuário</strong>
+            <small>Desenvolvido para coordenar o fluxo operacional e fiscal entre unidades.</small>
+          </div>
+        </div>
+
+        <ul class="tag-list" aria-label="Tecnologias do projeto">
+          <li>JavaScript (ES6+)</li>
+          <li>File System Access API</li>
+          <li>Importação de Planilhas</li>
+          <li>Multiusuário Concorrente</li>
+          <li>Templates de Conciliação Fiscal</li>
+        </ul>
       </div>
-    </div>
-  </div>
-</header>
+    </header>
 
-<main>
-  <div class="wrap">
+    <main class="detail-main" id="conteudo">
+      <div class="container detail-content">
+        <section class="detail-section" aria-labelledby="contexto-title">
+          <div class="detail-section-header">
+            <span>01</span>
+            <h2 id="contexto-title">Cenário e Gargalo Operacional</h2>
+          </div>
+          <div class="detail-copy">
+            <p>
+              Em operações com filiais distribuídas geograficamente, o recebimento físico e digital de faturas de fornecedores
+              frequentemente gerava desalinhamento entre o polo operacional e o setor fiscal. Notas chegavam com prazos
+              curtos de vencimento, aprovações pendentes em e-mails e ausência de uma visão unificada sobre o status de
+              cada lançamento.
+            </p>
+            <p>
+              O sistema foi concebido para dar transparência instantânea à esteira de contas a pagar: qual filial recebeu
+              o documento, qual é o fornecedor, se há pendência de validação operacional e qual é a etapa exata de
+              escrituração no fiscal.
+            </p>
+          </div>
+        </section>
 
-    <section class="block">
-      <h2>Contexto</h2>
-      <p>
-        O acompanhamento de faturas nasceu da necessidade de verificar as notas de forma mais ágil. Antes, era difícil
-        saber em que ponto cada fatura estava: quando ela chegou, quando foi enviada para outro setor, e quando voltou.
-        A ideia foi centralizar esse fluxo em um lugar só, de forma simples e fácil de acompanhar.
-      </p>
-      <p>
-        Um dos maiores ganhos foi a geração automática de e-mail: com o mínimo de esforço, o sistema cria a mensagem
-        para o Suprimentos gerar a OC e para o Fiscal faturar a nota — a partir de modelos configuráveis com variáveis
-        que são substituídas pelos dados de cada fornecedor.
-      </p>
-    </section>
+        <section class="detail-section" aria-labelledby="solucao-title">
+          <div class="detail-section-header">
+            <span>02</span>
+            <h2 id="solucao-title">Entregáveis e Funcionalidades</h2>
+          </div>
+          <ul class="detail-list">
+            <li><strong>Lançamento Ágil &amp; Edição:</strong> cadastro centralizado de faturas por mês de competência, filial de origem, fornecedor, valor e status de conformidade.</li>
+            <li><strong>Importação em Lote:</strong> ingestão estruturada de dados a partir de planilhas operacionais e pastas de rede com validação de duplicidade.</li>
+            <li><strong>Fluxo de Conciliação Fiscal:</strong> painel dedicado para a equipe fiscal marcar pendências, devoluções e aprovações com preenchimento automatizado de modelos de e-mail padronizados.</li>
+            <li><strong>Gestão de Recorrências:</strong> cadastro de fornecedores com despesas fixas recorrentes, reduzindo o tempo de lançamento nos fechamentos mensais.</li>
+            <li><strong>Painel de Indicadores:</strong> métricas consolidadas de volume financeiro por filial, quantidade de notas pendentes e distribuição por status.</li>
+          </ul>
+        </section>
 
-    <section class="block">
-      <h2>Destaques</h2>
-      <ul class="highlights">
-        <li><strong>Visibilidade ponta a ponta:</strong> saber quando a nota chegou, para qual setor foi enviada e o que já voltou.</li>
-        <li><strong>E-mail gerado com um clique:</strong> mensagem pronta para o Suprimentos abrir a OC e para o Fiscal faturar, com esforço mínimo.</li>
-        <li><strong>Modelos com variáveis:</strong> campos como <code>{fornecedor}</code>, <code>{valor_total}</code>, <code>{mes_referencia}</code> e <code>{qtd_ocs}</code> preenchidos automaticamente.</li>
-        <li><strong>Importação e recorrência:</strong> lançamento por planilha ou pasta e faturas recorrentes automáticas.</li>
-        <li><strong>Multiusuário sem servidor central:</strong> edição simultânea por várias pessoas, com resolução de conflito, direto sobre os arquivos.</li>
-      </ul>
-    </section>
+        <section class="detail-section" aria-labelledby="decisoes-title">
+          <div class="detail-section-header">
+            <span>03</span>
+            <h2 id="decisoes-title">Decisão Técnica e Concorrência</h2>
+          </div>
+          <div class="detail-copy">
+            <p>
+              O sistema precisava rodar sem impor custos de infraestrutura de banco de dados ou barreiras de firewall
+              entre filiais. A arquitetura escolhida operou em <strong>Local-First sobre a File System Access API</strong>,
+              conectando as estações de trabalho diretamente a pastas compartilhadas de rede segura da organização.
+            </p>
+            <p>
+              Para suportar múltiplos operadores registrando faturas ao mesmo tempo, foi desenvolvido um protocolo cooperativo:
+              antes de cada gravação, a aplicação verifica integridade de versão de arquivo, mescla entradas não conflitantes e
+              notifica visualmente o operador caso outro usuário tenha atualizado o mesmo lote.
+            </p>
+          </div>
+        </section>
 
-    <section class="block">
-      <h2>Telas</h2>
-      <div class="gallery">
-        <figure>
-          <img src="docs/screenshots/GerenciamentoFaturas/FaturasTelaIni.png" alt="Tela inicial com indicadores e lista de faturas" loading="lazy">
-          <figcaption>Tela inicial — indicadores do mês, filtros por filial/status/fluxo e ações rápidas.</figcaption>
-        </figure>
-        <figure>
-          <img src="docs/screenshots/GerenciamentoFaturas/FaturasFiscal.png" alt="Fluxo fiscal das faturas" loading="lazy">
-          <figcaption>Acompanhamento do fluxo fiscal das notas.</figcaption>
-        </figure>
-        <figure>
-          <img src="docs/screenshots/GerenciamentoFaturas/ModeloEmailFiscal.png" alt="Configuração do modelo de e-mail para o Fiscal" loading="lazy">
-          <figcaption>Modelo de e-mail para o Fiscal, com assunto e corpo baseados em variáveis.</figcaption>
-        </figure>
+        <section class="detail-section" aria-labelledby="telas-title">
+          <div class="detail-section-header">
+            <span>04</span>
+            <h2 id="telas-title">Telas do Sistema</h2>
+          </div>
+          <div class="gallery">
+            <figure>
+              <img src="docs/screenshots/GerenciamentoFaturas/FaturasTelaIni.png" alt="Tela inicial com indicadores por filial e listagem de faturas" loading="lazy">
+              <figcaption>Visão geral: filtros rápidos por filial, resumo financeiro do mês e listagem categorizada de faturas.</figcaption>
+            </figure>
+            <figure>
+              <img src="docs/screenshots/GerenciamentoFaturas/FaturasFiscal.png" alt="Tela de controle do fluxo fiscal entre áreas" loading="lazy">
+              <figcaption>Painel fiscal: acompanhamento das etapas de conferência e status de aprovação de notas.</figcaption>
+            </figure>
+            <figure>
+              <img src="docs/screenshots/GerenciamentoFaturas/ModeloEmailFiscal.png" alt="Geração automática de modelos de e-mail fiscal a partir dos registros" loading="lazy">
+              <figcaption>Automação de comunicação: geração de e-mails de conciliação estruturados com dados extraídos diretamente da fatura.</figcaption>
+            </figure>
+          </div>
+        </section>
       </div>
-    </section>
+    </main>
 
-  </div>
-</main>
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <span>© 2026 Caio Henrique Lopes da Silva · Software Engineer</span>
+        <a class="nav-back" href="index.html#projetos">← Voltar ao portfólio</a>
+      </div>
+    </footer>
 
-<footer>
-  <div class="wrap">
-    <span>© 2026 Caio Henrique Lopes da Silva</span>
-    <a href="index.html#projetos">← Voltar ao portfólio</a>
-  </div>
-</footer>
-
-</body>
+    <script>
+      const themeToggleBtn = document.getElementById('theme-toggle');
+      if (themeToggleBtn) {
+        themeToggleBtn.addEventListener('click', function () {
+          const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
+          const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+          document.documentElement.setAttribute('data-theme', newTheme);
+          localStorage.setItem('theme', newTheme);
+        });
+      }
+    </script>
+  </body>
 </html>

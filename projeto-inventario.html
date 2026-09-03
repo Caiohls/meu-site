@@ -1,85 +1,193 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Sistema de Inventário de TI — Caio Henrique Lopes da Silva</title>
-<meta name="description" content="Estudo de caso: sistema de inventário de ativos de TI que substituiu mais de 10 planilhas, com budget de troca e termos assinados via Adobe Sign API.">
-<link rel="stylesheet" href="projeto.css">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Caio Henrique Lopes da Silva">
+    <meta name="description" content="Estudo de caso do Sistema de Inventário de TI: aplicação local-first para controle patrimonial, orçamento de troca e assinaturas eletrônicas via Adobe Sign API.">
+    <meta name="theme-color" content="#f8fafc">
 
-<header class="hero">
-  <div class="wrap">
-    <a class="back" href="index.html#projetos">← Voltar ao portfólio</a>
-    <span class="status">Uso interno · Em produção</span>
-    <h1>Sistema de Inventário de TI</h1>
-    <p class="lede">
-      Um único lugar para saber o que falta e o que está certo no parque de TI — ativos, envios, budget de troca e
-      termos assinados, tudo interligado.
-    </p>
-    <div class="meta">
-      <div class="tags">
-        <span class="tag">JavaScript</span>
-        <span class="tag">File System Access API</span>
-        <span class="tag">Adobe Sign API</span>
-        <span class="tag">Multiusuário</span>
+    <meta property="og:locale" content="pt_BR">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Sistema de Inventário de TI — Caio Henrique Lopes da Silva">
+    <meta property="og:description" content="Gestão do ciclo de vida de ativos de TI corporativos com Local-First e Adobe Sign API.">
+
+    <title>Sistema de Inventário de TI — Caio Henrique Lopes da Silva</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="stylesheet" href="styles.css">
+
+    <script>
+      (function () {
+        const stored = localStorage.getItem('theme');
+        if (stored) {
+          document.documentElement.setAttribute('data-theme', stored);
+        } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+          document.documentElement.setAttribute('data-theme', 'dark');
+        } else {
+          document.documentElement.setAttribute('data-theme', 'light');
+        }
+      })();
+    </script>
+  </head>
+
+  <body>
+    <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+    <header class="site-header">
+      <div class="container site-nav">
+        <a class="brand" href="index.html" aria-label="Voltar para o início">
+          <span class="brand-mark" aria-hidden="true">CH</span>
+          <div class="brand-info">
+            <span class="brand-name">Caio Lopes</span>
+            <span class="brand-tag">Software Engineer</span>
+          </div>
+        </a>
+
+        <div class="nav-actions">
+          <nav aria-label="Navegação da página">
+            <a class="nav-back" href="index.html#projetos">← Voltar aos projetos</a>
+          </nav>
+
+          <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Alternar tema claro/escuro" title="Alternar tema">
+            <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="12" cy="12" r="5"></circle>
+              <line x1="12" y1="1" x2="12" y2="3"></line>
+              <line x1="12" y1="21" x2="12" y2="23"></line>
+              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+              <line x1="1" y1="12" x2="3" y2="12"></line>
+              <line x1="21" y1="12" x2="23" y2="12"></line>
+              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+            </svg>
+            <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+            </svg>
+          </button>
+        </div>
       </div>
-      <div class="links">
-        <span class="pending">repositório a publicar</span>
+    </header>
+
+    <header class="detail-hero">
+      <div class="container">
+        <a class="back-link" href="index.html#projetos">← Projetos selecionados</a>
+
+        <div class="detail-hero-grid">
+          <div>
+            <p class="eyebrow">Sistema Corporativo Interno · Gestão de Ativos</p>
+            <h1>Sistema de Inventário de TI</h1>
+            <p class="detail-lede">
+              Uma aplicação local-first para conectar ativos, planejamento orçamentário de troca, termos de
+              responsabilidade com validade jurídica e fluxo de recompra corporativa em uma experiência unificada.
+            </p>
+          </div>
+          <div class="detail-hero-meta">
+            <span>Status</span>
+            <strong>Uso Corporativo Interno</strong>
+            <span>Arquitetura</span>
+            <strong>Local-First / Multiusuário</strong>
+            <small>Desenvolvido para rotina de infraestrutura e TI corporativa.</small>
+          </div>
+        </div>
+
+        <ul class="tag-list" aria-label="Tecnologias do projeto">
+          <li>JavaScript (ES6+)</li>
+          <li>File System Access API</li>
+          <li>Adobe Sign API</li>
+          <li>Local-First</li>
+          <li>Concorrência com Lock Cooperativo</li>
+        </ul>
       </div>
-    </div>
-  </div>
-</header>
+    </header>
 
-<main>
-  <div class="wrap">
+    <main class="detail-main" id="conteudo">
+      <div class="container detail-content">
+        <section class="detail-section" aria-labelledby="contexto-title">
+          <div class="detail-section-header">
+            <span>01</span>
+            <h2 id="contexto-title">Cenário e Desafio Operacional</h2>
+          </div>
+          <div class="detail-copy">
+            <p>
+              A gestão de equipamentos de TI em organizações corporativas frequentemente sofre com a fragmentação: o
+              cadastro do ativo reside em uma planilha, o histórico de trocas em e-mails e os termos assinados em pastas
+              físicas ou unidades de rede dispersas. Sem um ciclo integrado, o controle patrimonial perde precisão e o
+              planejamento orçamentário para reposição torna-se reativo.
+            </p>
+            <p>
+              O objetivo do sistema foi unificar essas etapas em uma esteira única e contínua: desde a entrada da máquina,
+              alocação ao colaborador, geração de termos de responsabilidade com assinatura digital até o ciclo final de
+              depreciação e venda planejada aos próprios funcionários (buyback).
+            </p>
+          </div>
+        </section>
 
-    <section class="block">
-      <h2>Contexto</h2>
-      <p>
-        O inventário nasceu da necessidade de saber, de forma confiável, o que falta e o que está certo no parque de
-        equipamentos. Antes, essa informação estava espalhada em mais de 10 planilhas — uma para cada coisa. O objetivo
-        foi reunir tudo em um só lugar, com controle real e visão única dos ativos.
-      </p>
-      <p>
-        Com a base centralizada, o próprio sistema passou a gerar o budget de troca de equipamentos de forma simples e
-        rápida, além de rastrear cada mudança e responsável por ativo — dos smartphones e computadores aos telefones
-        fixos e impressoras.
-      </p>
-    </section>
+        <section class="detail-section" aria-labelledby="solucao-title">
+          <div class="detail-section-header">
+            <span>02</span>
+            <h2 id="solucao-title">Módulos e Funcionalidades</h2>
+          </div>
+          <ul class="detail-list">
+            <li><strong>Inventário Patrimonial:</strong> rastreabilidade de equipamentos por número de série, modelo, localização física, colaborador responsável e histórico de movimentações.</li>
+            <li><strong>Previsão de Troca &amp; Budget:</strong> cálculo automatizado de obsolescência e depreciação dos ativos para apoio ao planejamento orçamentário anual de TI.</li>
+            <li><strong>Termos de Responsabilidade com Adobe Sign:</strong> geração de contratos digitais padronizados e envio automatizado para assinatura eletrônica com validade jurídica via API.</li>
+            <li><strong>Módulo de Recompra (Buyback):</strong> esteira completa de precificação corporativa, oferta de compra, aceite do colaborador e formalização documental para descarte seguro.</li>
+            <li><strong>Histórico Auditável:</strong> registro rigoroso de qualquer alteração de estado dos ativos com data, hora e identificação de usuário.</li>
+          </ul>
+        </section>
 
-    <section class="block">
-      <h2>Destaques</h2>
-      <ul class="highlights">
-        <li><strong>Um lugar só no lugar de +10 planilhas:</strong> visão única de ativos, com controle do que falta e do que está certo.</li>
-        <li><strong>Rastreamento por ativo:</strong> cada mudança e responsável registrados, incluindo envios de equipamentos para pessoas e unidades.</li>
-        <li><strong>Cobertura ampla de ativos:</strong> smartphones, computadores, telefones fixos e impressoras.</li>
-        <li><strong>Budget de troca automático:</strong> geração simples e rápida do orçamento de renovação de equipamentos.</li>
-        <li><strong>Venda de equipamentos integrada:</strong> o fim de vida do ativo faz parte do mesmo fluxo, sem ficar desconexo.</li>
-        <li><strong>Termos via Adobe Sign API:</strong> preenchimento caiu de ~3 min (pela página do Adobe) para ~1 min, e os documentos salvam direto nos servidores, sem precisar baixar manualmente.</li>
-      </ul>
-    </section>
+        <section class="detail-section" aria-labelledby="decisoes-title">
+          <div class="detail-section-header">
+            <span>03</span>
+            <h2 id="decisoes-title">Decisão de Arquitetura e Engenharia</h2>
+          </div>
+          <div class="detail-copy">
+            <p>
+              Um dos requisitos mandatórios era disponibilizar a ferramenta sem overhead de custos de banco de dados
+              em nuvem ou infraestrutura de servidores dedicados adicionais. A solução adotada foi uma arquitetura
+              <strong>Local-First moderna</strong> utilizando a <span class="inline-code">File System Access API</span>.
+            </p>
+            <p>
+              A aplicação roda diretamente no navegador, persistindo dados em arquivos JSON em diretório de rede compartilhado.
+              Para garantir integridade em acessos simultâneos por múltiplos operadores de TI, implementou-se uma rotina de
+              <strong>leitura prévia, mesclagem inteligente e lock cooperativo transitório</strong>, prevenindo sobrescritas
+              acidentais sem congelar a experiência do usuário.
+            </p>
+          </div>
+        </section>
 
-    <section class="block">
-      <h2>Telas</h2>
-      <div class="gallery">
-        <figure>
-          <img src="docs/screenshots/Inventario/InventTelaIni.png" alt="Dashboard do inventário com contagem de ativos por tipo" loading="lazy">
-          <figcaption>Dashboard — contagem de ativos por tipo, budget, ativos por local e últimas mudanças.</figcaption>
-        </figure>
+        <section class="detail-section" aria-labelledby="telas-title">
+          <div class="detail-section-header">
+            <span>04</span>
+            <h2 id="telas-title">Interface do Sistema</h2>
+          </div>
+          <div class="gallery">
+            <figure>
+              <img src="docs/screenshots/Inventario/InventTelaIni.png" alt="Dashboard do inventário com ativos por tipo, budget e últimas movimentações" loading="lazy">
+              <figcaption>Painel administrativo consolidado: total de ativos por categoria, indicadores de budget de troca e registro de movimentações recentes.</figcaption>
+            </figure>
+          </div>
+        </section>
       </div>
-    </section>
+    </main>
 
-  </div>
-</main>
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <span>© 2026 Caio Henrique Lopes da Silva · Software Engineer</span>
+        <a class="nav-back" href="index.html#projetos">← Voltar ao portfólio</a>
+      </div>
+    </footer>
 
-<footer>
-  <div class="wrap">
-    <span>© 2026 Caio Henrique Lopes da Silva</span>
-    <a href="index.html#projetos">← Voltar ao portfólio</a>
-  </div>
-</footer>
-
-</body>
+    <script>
+      const themeToggleBtn = document.getElementById('theme-toggle');
+      if (themeToggleBtn) {
+        themeToggleBtn.addEventListener('click', function () {
+          const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
+          const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+          document.documentElement.setAttribute('data-theme', newTheme);
+          localStorage.setItem('theme', newTheme);
+        });
+      }
+    </script>
+  </body>
 </html>
