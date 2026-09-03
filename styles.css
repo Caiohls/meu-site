@@ -915,6 +915,33 @@ button:focus-visible {
   line-height: 1.6;
 }
 
+.project-text {
+  margin: 12px 0 0;
+  color: var(--muted-strong);
+  font-size: 0.9rem;
+  line-height: 1.65;
+}
+
+.project-text strong {
+  color: var(--text);
+}
+
+.project-bullets {
+  margin: 14px 0 0;
+  padding-left: 18px;
+  color: var(--muted-strong);
+  font-size: 0.88rem;
+  line-height: 1.6;
+}
+
+.project-bullets li {
+  margin-bottom: 8px;
+}
+
+.project-bullets strong {
+  color: var(--text);
+}
+
 .project-facts {
   display: grid;
   gap: 14px;
