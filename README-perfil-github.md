@@ -48,7 +48,7 @@ Aplicação corporativa para acompanhamento, lançamento e conferência de fatur
 Plataforma SaaS multi-tenant para gestão completa de eventos corporativos, eliminando planilhas manuais. Abrange criação de eventos por workspace, convites rastreáveis com token único, credenciamento via QR Code com validação instantânea por scanner, certificados automatizados em PDF e métricas de adesão em tempo real.
 
 `React 19` · `Vite` · `TypeScript` · `Supabase/PostgreSQL` · `Edge Functions` · `Tailwind CSS`  
-[Acessar plataforma](https://gerentevent.com) · *Repositório privado*
+*SaaS concluído · Repositório privado*
 
 ---
 
@@ -56,7 +56,7 @@ Plataforma SaaS multi-tenant para gestão completa de eventos corporativos, elim
 Aplicação web voltada à inteligência de ritmo comercial (pacing), convertendo metas mensais estáticas em indicadores de execução diária para orientar vendedores e líderes a corrigirem o ritmo antes do fechamento do mês.
 
 `Next.js 16` · `React 19` · `TypeScript` · `Supabase Postgres` · `Tailwind CSS` · `GitHub Actions`  
-[Deploy na Vercel](https://calculametamo.vercel.app) · [Repositório no GitHub](https://github.com/caiohls2000-lang/CalculaMetaMo)
+[Deploy na Vercel](https://calculametamo.vercel.app) · *Repositório privado*
 
 ---
 

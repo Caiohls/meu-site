@@ -1,39 +1,4 @@
 :root {
-  color-scheme: light;
-  --bg: #f8fafc;
-  --bg-alt: #f1f5f9;
-  --surface: #ffffff;
-  --surface-subtle: #f8fafc;
-  --surface-strong: #eef2f6;
-  --text: #0f172a;
-  --text-strong: #1e293b;
-  --muted: #64748b;
-  --muted-strong: #334155;
-  --line: #e2e8f0;
-  --line-strong: #cbd5e1;
-  --primary: #1e40af;
-  --primary-hover: #1d4ed8;
-  --primary-subtle: #eff6ff;
-  --accent: #0284c7;
-  --accent-strong: #0369a1;
-  --badge-bg: #f1f5f9;
-  --badge-text: #475569;
-  --badge-border: #e2e8f0;
-  --badge-active-bg: #eff6ff;
-  --badge-active-text: #1d4ed8;
-  --badge-active-border: #bfdbfe;
-  --max-width: 1140px;
-  --reading-width: 760px;
-  --radius: 12px;
-  --radius-sm: 8px;
-  --radius-pill: 9999px;
-  --shadow-sm: 0 1px 2px 0 rgba(15, 23, 42, 0.05);
-  --shadow-md: 0 4px 6px -1px rgba(15, 23, 42, 0.07), 0 2px 4px -2px rgba(15, 23, 42, 0.05);
-  --shadow-lg: 0 10px 15px -3px rgba(15, 23, 42, 0.08), 0 4px 6px -4px rgba(15, 23, 42, 0.04);
-  --header-bg: rgba(255, 255, 255, 0.88);
-}
-
-[data-theme="dark"] {
   color-scheme: dark;
   --bg: #0b1015;
   --bg-alt: #0e151c;
@@ -57,42 +22,45 @@
   --badge-active-bg: rgba(56, 189, 248, 0.15);
   --badge-active-text: #38bdf8;
   --badge-active-border: rgba(56, 189, 248, 0.35);
-  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.25);
-  --shadow-md: 0 4px 8px -1px rgba(0, 0, 0, 0.35), 0 2px 4px -2px rgba(0, 0, 0, 0.25);
-  --shadow-lg: 0 12px 20px -3px rgba(0, 0, 0, 0.45);
-  --header-bg: rgba(11, 16, 21, 0.88);
+  --max-width: 1140px;
+  --reading-width: 760px;
+  --radius: 12px;
+  --radius-sm: 8px;
+  --radius-pill: 9999px;
+  --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.35);
+  --shadow-md: 0 4px 10px -1px rgba(0, 0, 0, 0.45), 0 2px 4px -2px rgba(0, 0, 0, 0.35);
+  --shadow-lg: 0 12px 24px -3px rgba(0, 0, 0, 0.55);
+  --header-bg: rgba(11, 16, 21, 0.9);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]):not([data-theme="dark"]) {
-    color-scheme: dark;
-    --bg: #0b1015;
-    --bg-alt: #0e151c;
-    --surface: #121922;
-    --surface-subtle: #0e151c;
-    --surface-strong: #17212c;
-    --text: #f8fafc;
-    --text-strong: #e2e8f0;
-    --muted: #94a3b8;
-    --muted-strong: #cbd5e1;
-    --line: #202c38;
-    --line-strong: #2f3e4e;
-    --primary: #38bdf8;
-    --primary-hover: #60a5fa;
-    --primary-subtle: rgba(56, 189, 248, 0.12);
-    --accent: #38bdf8;
-    --accent-strong: #7dd3fc;
-    --badge-bg: #17212c;
-    --badge-text: #cbd5e1;
-    --badge-border: #243342;
-    --badge-active-bg: rgba(56, 189, 248, 0.15);
-    --badge-active-text: #38bdf8;
-    --badge-active-border: rgba(56, 189, 248, 0.35);
-    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.25);
-    --shadow-md: 0 4px 8px -1px rgba(0, 0, 0, 0.35);
-    --shadow-lg: 0 12px 20px -3px rgba(0, 0, 0, 0.45);
-    --header-bg: rgba(11, 16, 21, 0.88);
-  }
+[data-theme="light"] {
+  color-scheme: light;
+  --bg: #ebf0f5;
+  --bg-alt: #dfb6c6;
+  --surface: #ffffff;
+  --surface-subtle: #f4f7fa;
+  --surface-strong: #e2e8f0;
+  --text: #090d16;
+  --text-strong: #0f172a;
+  --muted: #475569;
+  --muted-strong: #1e293b;
+  --line: #cbd5e1;
+  --line-strong: #94a3b8;
+  --primary: #1d4ed8;
+  --primary-hover: #1e40af;
+  --primary-subtle: #dbeafe;
+  --accent: #0284c7;
+  --accent-strong: #0369a1;
+  --badge-bg: #e2e8f0;
+  --badge-text: #0f172a;
+  --badge-border: #cbd5e1;
+  --badge-active-bg: #dbeafe;
+  --badge-active-text: #1d4ed8;
+  --badge-active-border: #93c5fd;
+  --shadow-sm: 0 1px 3px 0 rgba(15, 23, 42, 0.1);
+  --shadow-md: 0 6px 14px -2px rgba(15, 23, 42, 0.12), 0 2px 5px -1px rgba(15, 23, 42, 0.08);
+  --shadow-lg: 0 14px 26px -4px rgba(15, 23, 42, 0.16);
+  --header-bg: rgba(255, 255, 255, 0.94);
 }
 
 * {
@@ -289,19 +257,19 @@ button:focus-visible {
 }
 
 .theme-toggle .icon-sun {
-  display: none;
+  display: block;
 }
 
 .theme-toggle .icon-moon {
-  display: block;
-}
-
-[data-theme="dark"] .theme-toggle .icon-sun {
-  display: block;
-}
-
-[data-theme="dark"] .theme-toggle .icon-moon {
   display: none;
+}
+
+[data-theme="light"] .theme-toggle .icon-sun {
+  display: none;
+}
+
+[data-theme="light"] .theme-toggle .icon-moon {
+  display: block;
 }
 
 /* Hero Section */
