@@ -1,0 +1,344 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Caio Henrique Lopes da Silva">
+    <meta name="description" content="Estudo de caso do GerenteEvent: plataforma SaaS multi-tenant para gestão de eventos corporativos, com convites por e-mail, credenciamento por QR Code, logística de viagem e certificados automáticos.">
+    <meta name="theme-color" content="#0b1015">
+
+    <meta property="og:locale" content="pt_BR">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="GerenteEvent — Caio Henrique Lopes da Silva">
+    <meta property="og:description" content="Plataforma SaaS multi-tenant de gestão de eventos corporativos: convites, credenciamento por QR Code, logística e certificados.">
+
+    <title>GerenteEvent — Caio Henrique Lopes da Silva</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="stylesheet" href="styles.css">
+
+    <script>
+      (function () {
+        const stored = localStorage.getItem('theme');
+        if (stored) {
+          document.documentElement.setAttribute('data-theme', stored);
+        } else {
+          document.documentElement.setAttribute('data-theme', 'dark');
+        }
+      })();
+    </script>
+  </head>
+
+  <body>
+    <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+    <header class="site-header">
+      <div class="container site-nav">
+        <a class="brand" href="index.html" aria-label="Voltar para o início">
+          <span class="brand-mark" aria-hidden="true">CH</span>
+          <div class="brand-info">
+            <span class="brand-name">Caio Lopes</span>
+            <span class="brand-tag">Software Engineer</span>
+          </div>
+        </a>
+
+        <div class="nav-actions">
+          <nav aria-label="Navegação da página">
+            <a class="nav-back" href="index.html#projetos">← Voltar aos projetos</a>
+          </nav>
+
+          <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Alternar tema claro/escuro" title="Alternar tema">
+            <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="12" cy="12" r="5"></circle>
+              <line x1="12" y1="1" x2="12" y2="3"></line>
+              <line x1="12" y1="21" x2="12" y2="23"></line>
+              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+              <line x1="1" y1="12" x2="3" y2="12"></line>
+              <line x1="21" y1="12" x2="23" y2="12"></line>
+              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+            </svg>
+            <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <header class="detail-hero">
+      <div class="container">
+        <a class="back-link" href="index.html#projetos">← Projetos selecionados</a>
+
+        <div class="detail-hero-grid">
+          <div>
+            <p class="eyebrow">SaaS Multi-tenant · Eventos Corporativos</p>
+            <h1>GerenteEvent</h1>
+            <p class="detail-lede">
+              Plataforma completa para operar eventos corporativos de ponta a ponta: do convite por e-mail com token único
+              ao credenciamento por QR Code na portaria, passando por logística de viagem, comunicação transacional,
+              certificados em PDF e métricas de adesão em tempo real.
+            </p>
+          </div>
+          <div class="detail-hero-meta">
+            <span>Status</span>
+            <strong>Projeto descontinuado</strong>
+            <span>Arquitetura</span>
+            <strong>SaaS multi-tenant com RLS</strong>
+            <small>As imagens são capturas reais da aplicação. Nomes, e-mails, marca e logotipo foram substituídos por dados fictícios.</small>
+          </div>
+        </div>
+
+        <ul class="tag-list" aria-label="Tecnologias do projeto">
+          <li>React 19</li>
+          <li>Vite</li>
+          <li>Tailwind CSS 4</li>
+          <li>Supabase (PostgreSQL + RLS)</li>
+          <li>Edge Functions (Deno)</li>
+          <li>i18n ES / PT / EN</li>
+          <li>Vercel</li>
+        </ul>
+      </div>
+    </header>
+
+    <main class="detail-main" id="conteudo">
+      <div class="container detail-content">
+        <section class="detail-section" aria-labelledby="contexto-title">
+          <div class="detail-section-header">
+            <span>01</span>
+            <h2 id="contexto-title">Cenário e Gargalo Operacional</h2>
+          </div>
+          <div class="detail-copy">
+            <p>
+              Eventos corporativos costumam ser operados com planilhas paralelas e longas cadeias de e-mail: uma lista de convidados
+              em um arquivo, as confirmações espalhadas em respostas individuais, a logística de voos e hotéis em outra planilha e o
+              credenciamento feito em papel na porta do evento. O custo real não é o trabalho de montar cada arquivo, e sim a
+              divergência entre eles no dia da operação.
+            </p>
+            <p>
+              O GerenteEvent nasceu para transformar esse processo em um fluxo único e rastreável: cada convidado tem um token
+              individual que atravessa toda a jornada — convite, confirmação, credencial, check-in e certificado —, e cada organização
+              enxerga apenas os próprios dados.
+            </p>
+          </div>
+        </section>
+
+        <section class="detail-section" aria-labelledby="arquitetura-title">
+          <div class="detail-section-header">
+            <span>02</span>
+            <h2 id="arquitetura-title">Arquitetura da Plataforma</h2>
+          </div>
+          <div class="detail-copy">
+            <p>
+              O frontend é uma SPA em <strong>React 19 com Vite e Tailwind CSS 4</strong>, servida pela Vercel. Todo o backend roda no
+              <strong>Supabase</strong>: PostgreSQL com <strong>Row Level Security</strong> ativo em todas as tabelas, autenticação
+              própria e <strong>Edge Functions em Deno</strong> para tudo que exige privilégio elevado — disparo de e-mails
+              transacionais, geração de PDFs, URLs assinadas para arquivos privados e operações administrativas de usuário.
+            </p>
+            <p>
+              O isolamento entre clientes é feito por <em>workspace</em>: cada evento pertence a uma organização, e as políticas de RLS
+              derivam a permissão do vínculo do usuário com aquele workspace — nunca de um papel global. Nenhuma query do frontend
+              consegue enxergar dados de outra organização, mesmo que a chave pública da API seja conhecida.
+            </p>
+          </div>
+          <ul class="detail-list">
+            <li><strong>Multi-tenancy real:</strong> organizações, papéis por workspace e limites de plano aplicados no banco, não apenas na interface.</li>
+            <li><strong>E-mail transacional:</strong> envio via provedor externo com webhook de retorno, registrando entregas, aberturas, cliques e falhas por destinatário.</li>
+            <li><strong>Arquivos privados:</strong> anexos, documentos e imagens ficam em buckets fechados, acessados apenas por URL assinada gerada sob demanda por Edge Function.</li>
+            <li><strong>Internacionalização:</strong> três idiomas (espanhol, português e inglês) com detecção automática e preferência persistida no perfil do usuário.</li>
+          </ul>
+        </section>
+
+        <section class="detail-section" aria-labelledby="organizador-title">
+          <div class="detail-section-header">
+            <span>03</span>
+            <h2 id="organizador-title">Fluxo do Organizador</h2>
+          </div>
+          <div class="detail-copy">
+            <p>
+              O organizador começa pelo painel da organização, cria o evento com data, local, capacidade e modalidade, e a partir daí
+              todo o trabalho acontece dentro do próprio evento, dividido em abas de Pessoas, Logística e Conteúdo.
+            </p>
+          </div>
+          <div class="gallery">
+            <figure>
+              <img src="docs/screenshots/GerenteEvent/AdminDashboard.png" alt="Painel com indicadores da organização e lista de eventos" loading="lazy">
+              <figcaption>Painel da organização: limites do plano, ocupação por evento, confirmações e check-ins consolidados, com as últimas confirmações chegando em tempo real.</figcaption>
+            </figure>
+            <figure>
+              <img src="docs/screenshots/GerenteEvent/AdminNewEvent.png" alt="Formulário de criação de evento" loading="lazy">
+              <figcaption>Criação do evento: datas, evento presencial ou online, endereço com autocompletar, capacidade e modalidade definem as regras usadas no restante do fluxo.</figcaption>
+            </figure>
+            <figure>
+              <img src="docs/screenshots/GerenteEvent/EventInviteModal.png" alt="Modal de convite com entrada manual e importação de planilha" loading="lazy">
+              <figcaption>Convites em lote: cadastro manual ou importação de planilha. Cada convite gera um token individual que vira o QR Code do participante.</figcaption>
+            </figure>
+            <figure>
+              <img src="docs/screenshots/GerenteEvent/EventGuests.png" alt="Lista de participantes do evento com status e ações" loading="lazy">
+              <figcaption>Lista de participantes: status de convite, confirmação e presença, reenvio de pendentes, exportação da base e lista de espera quando a capacidade se esgota.</figcaption>
+            </figure>
+            <figure>
+              <img src="docs/screenshots/GerenteEvent/EventCommunication.png" alt="Aba de comunicação com Save the Date, jornada e templates de e-mail" loading="lazy">
+              <figcaption>Comunicação: Save the Date para público externo, jornada de e-mails com execução manual e templates customizáveis por tipo de mensagem.</figcaption>
+            </figure>
+          </div>
+        </section>
+
+        <section class="detail-section" aria-labelledby="logistica-title">
+          <div class="detail-section-header">
+            <span>04</span>
+            <h2 id="logistica-title">Logística de Viagem e Conteúdo</h2>
+          </div>
+          <div class="detail-copy">
+            <p>
+              Em eventos internacionais, metade do esforço não é o evento em si: é levar as pessoas até ele. O módulo de logística
+              concentra voos de ida e volta com conexões, hospedagem, guia de viagem, controle de brindes por participante e o
+              orçamento da operação.
+            </p>
+          </div>
+          <div class="gallery">
+            <figure>
+              <img src="docs/screenshots/GerenteEvent/EventTravel.png" alt="Tabela de voos de ida e volta dos participantes" loading="lazy">
+              <figcaption>Viagens dos participantes: ida e volta lado a lado, com aeroportos, horários, número do voo e conexões destacadas — além de exportação para a agência.</figcaption>
+            </figure>
+            <figure>
+              <img src="docs/screenshots/GerenteEvent/EventTravelGuide.png" alt="Editor do guia de viagem do evento" loading="lazy">
+              <figcaption>Guia de viagem: mensagem de boas-vindas, capa e arquivos que o participante acessa na própria área dele, com pré-visualização da primeira página do PDF.</figcaption>
+            </figure>
+            <figure>
+              <img src="docs/screenshots/GerenteEvent/EventGifts.png" alt="Catálogo de brindes do evento" loading="lazy">
+              <figcaption>Brindes: catálogo por tipo, sistema de medida e modelagem, para que cada participante informe seu tamanho antes da compra do material.</figcaption>
+            </figure>
+            <figure>
+              <img src="docs/screenshots/GerenteEvent/EventBudget.png" alt="Painel de orçamento do evento" loading="lazy">
+              <figcaption>Orçamento: valor total, previsto, gasto real e saldo, com itens lançados ao longo da operação.</figcaption>
+            </figure>
+          </div>
+        </section>
+
+        <section class="detail-section" aria-labelledby="credenciamento-title">
+          <div class="detail-section-header">
+            <span>05</span>
+            <h2 id="credenciamento-title">Credenciamento e Certificados</h2>
+          </div>
+          <div class="detail-copy">
+            <p>
+              No dia do evento, o credenciamento é feito pelo próprio celular da equipe: a câmera lê o QR Code da credencial e registra
+              a entrada. Quando a leitura falha — crachá amassado, celular sem bateria, participante sem o e-mail —, a mesma tela
+              permite a busca manual por nome, e-mail ou empresa, com opção de desfazer o registro.
+            </p>
+            <p>
+              Depois do evento, o certificado é gerado em PDF pela Edge Function e disponibilizado ao participante, com o painel
+              acompanhando quem já recebeu e quem ainda está pendente.
+            </p>
+          </div>
+          <div class="gallery">
+            <figure>
+              <img src="docs/screenshots/GerenteEvent/AdminCheckin.png" alt="Tela de check-in com busca manual e registro de presença" loading="lazy">
+              <figcaption>Credenciamento: contadores de confirmados, presentes e pendentes, busca manual como plano B do scanner e ação de desfazer para corrigir erros na portaria.</figcaption>
+            </figure>
+            <figure>
+              <img src="docs/screenshots/GerenteEvent/AdminCertificates.png" alt="Lista de certificados enviados por participante" loading="lazy">
+              <figcaption>Certificados: participantes elegíveis por evento e situação do envio, filtrando quem já recebeu e quem continua pendente.</figcaption>
+            </figure>
+          </div>
+        </section>
+
+        <section class="detail-section" aria-labelledby="participante-title">
+          <div class="detail-section-header">
+            <span>06</span>
+            <h2 id="participante-title">A Experiência do Participante</h2>
+          </div>
+          <div class="detail-copy">
+            <p>
+              Do outro lado, o participante nunca precisa aprender o sistema. Ele recebe um e-mail, abre um link e encontra tudo
+              em uma página só: confirmação de presença, agenda, credencial com QR Code, guia de viagem, brindes e certificado.
+            </p>
+          </div>
+          <div class="gallery">
+            <figure>
+              <img src="docs/screenshots/GerenteEvent/EventLanding.png" alt="Página pública do evento com data, local, vagas e agenda" loading="lazy">
+              <figcaption>Página pública do evento: data, horário, local com atalhos para Google Maps e Waze, vagas restantes e agenda completa — com inscrição aberta ou apenas por convite.</figcaption>
+            </figure>
+            <figure>
+              <img src="docs/screenshots/GerenteEvent/PublicHome.png" alt="Área do participante para localizar o convite pelo e-mail" loading="lazy">
+              <figcaption>Área do participante: basta o e-mail para localizar o convite, confirmar presença, fazer check-in, ver a agenda ou baixar o certificado.</figcaption>
+            </figure>
+          </div>
+        </section>
+
+        <section class="detail-section" aria-labelledby="dados-title">
+          <div class="detail-section-header">
+            <span>07</span>
+            <h2 id="dados-title">Métricas e White-label</h2>
+          </div>
+          <div class="detail-copy">
+            <p>
+              Cada evento tem seu funil de conversão — convidados, confirmados e presentes —, distribuição de status, confirmações por
+              dia e nota média do feedback. E como a plataforma foi pensada para atender mais de uma organização, cada workspace define
+              o próprio logotipo, nome, cor de marca e slug, aplicados em e-mails, credenciais e certificados.
+            </p>
+          </div>
+          <div class="gallery">
+            <figure>
+              <img src="docs/screenshots/GerenteEvent/EventMetrics.png" alt="Painel de métricas do evento com funil de conversão" loading="lazy">
+              <figcaption>Métricas do evento: funil de convidados a presentes, proporção entre confirmados e pendentes e evolução das confirmações por dia.</figcaption>
+            </figure>
+            <figure>
+              <img src="docs/screenshots/GerenteEvent/AdminWorkspaceSettings.png" alt="Configurações de identidade visual da organização" loading="lazy">
+              <figcaption>White-label: logotipo, nome exibido, cor de marca e slug próprio da organização, refletidos automaticamente nos e-mails e documentos gerados.</figcaption>
+            </figure>
+          </div>
+        </section>
+
+        <section class="detail-section" aria-labelledby="decisoes-title">
+          <div class="detail-section-header">
+            <span>08</span>
+            <h2 id="decisoes-title">Decisões Técnicas</h2>
+          </div>
+          <ul class="detail-list">
+            <li><strong>O convite é o token:</strong> o identificador do convite funciona como QR Code, chave da credencial e do certificado. Um único registro carrega a jornada inteira, sem tabelas paralelas de códigos.</li>
+            <li><strong>Permissão no banco, não na tela:</strong> o papel do usuário vem do vínculo com o workspace e é avaliado nas políticas de RLS. Esconder um botão nunca foi tratado como controle de acesso.</li>
+            <li><strong>Recursão em política de RLS:</strong> uma policy que consultava a própria tabela derrubou o login com erro de recursão infinita do PostgreSQL. A correção foi reescrever a regra com função auxiliar, e a lição virou padrão do projeto.</li>
+            <li><strong>Autenticação própria em vez de magic link:</strong> o fluxo de acesso passou a usar token próprio com troca obrigatória de senha no primeiro acesso, eliminando a dependência de links de e-mail que expiravam antes de o participante abrir.</li>
+            <li><strong>Abas com estado preservado:</strong> as seções do evento viraram abas internas que mantêm o conteúdo montado, evitando recarregar listas grandes a cada troca de contexto.</li>
+            <li><strong>Custo como restrição de projeto:</strong> sem agendador no plano gratuito do banco, os lembretes foram desenhados para execução manual e idempotente, em vez de depender de cron.</li>
+          </ul>
+        </section>
+
+        <section class="detail-section" aria-labelledby="status-title">
+          <div class="detail-section-header">
+            <span>09</span>
+            <h2 id="status-title">Status do Projeto</h2>
+          </div>
+          <div class="detail-copy">
+            <p>
+              A plataforma chegou a operar eventos reais, com convites, credenciamento e certificados emitidos em produção. O projeto
+              está descontinuado e o repositório permanece privado; este estudo de caso documenta o produto e as decisões de engenharia
+              por trás dele.
+            </p>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <span>© 2026 Caio Henrique Lopes da Silva · Software Engineer</span>
+        <a class="nav-back" href="index.html#projetos">← Voltar ao portfólio</a>
+      </div>
+    </footer>
+
+    <script>
+      const themeToggleBtn = document.getElementById('theme-toggle');
+      if (themeToggleBtn) {
+        themeToggleBtn.addEventListener('click', function () {
+          const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
+          const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+          document.documentElement.setAttribute('data-theme', newTheme);
+          localStorage.setItem('theme', newTheme);
+        });
+      }
+    </script>
+  </body>
+</html>
