@@ -76,8 +76,8 @@
             <h1>Gerentevent</h1>
             <p class="detail-lede">
               Plataforma completa para operar eventos corporativos de ponta a ponta: do convite por e-mail com token único
-              ao credenciamento por QR Code na portaria, passando por logística de viagem, comunicação transacional,
-              certificados em PDF e métricas de adesão em tempo real.
+              ao credenciamento por QR Code na portaria, passando por logística de viagem, comunicação transacional
+              e certificados em PDF.
             </p>
           </div>
           <div class="detail-hero-meta">
@@ -85,6 +85,9 @@
             <strong>Projeto descontinuado</strong>
             <span>Arquitetura</span>
             <strong>SaaS multi-tenant com RLS</strong>
+            <span>Time</span>
+            <strong>Caio Lopes — engenharia e produto</strong>
+            <strong>Livia Gundelach — Product Owner</strong>
             <small>As imagens são capturas reais da aplicação. Nomes, e-mails, marca e logotipo foram substituídos por dados fictícios.</small>
           </div>
         </div>
@@ -270,20 +273,16 @@
         <section class="detail-section" aria-labelledby="dados-title">
           <div class="detail-section-header">
             <span>07</span>
-            <h2 id="dados-title">Métricas e White-label</h2>
+            <h2 id="dados-title">White-label por Organização</h2>
           </div>
           <div class="detail-copy">
             <p>
-              Cada evento tem seu funil de conversão — convidados, confirmados e presentes —, distribuição de status, confirmações por
-              dia e nota média do feedback. E como a plataforma foi pensada para atender mais de uma organização, cada workspace define
-              o próprio logotipo, nome, cor de marca e slug, aplicados em e-mails, credenciais e certificados.
+              A plataforma foi pensada para atender mais de uma organização ao mesmo tempo. Cada workspace define o próprio logotipo,
+              nome exibido, cor de marca e slug, e essa identidade é aplicada automaticamente nos e-mails transacionais, nas credenciais
+              e nos certificados — sem que uma organização enxergue qualquer dado da outra.
             </p>
           </div>
           <div class="gallery">
-            <figure>
-              <img src="docs/screenshots/Gerentevent/EventMetrics.png" alt="Painel de métricas do evento com funil de conversão" loading="lazy">
-              <figcaption>Métricas do evento: funil de convidados a presentes, proporção entre confirmados e pendentes e evolução das confirmações por dia.</figcaption>
-            </figure>
             <figure>
               <img src="docs/screenshots/Gerentevent/AdminWorkspaceSettings.png" alt="Configurações de identidade visual da organização" loading="lazy">
               <figcaption>White-label: logotipo, nome exibido, cor de marca e slug próprio da organização, refletidos automaticamente nos e-mails e documentos gerados.</figcaption>
@@ -306,9 +305,33 @@
           </ul>
         </section>
 
-        <section class="detail-section" aria-labelledby="status-title">
+        <section class="detail-section" aria-labelledby="time-title">
           <div class="detail-section-header">
             <span>09</span>
+            <h2 id="time-title">Time do Projeto</h2>
+          </div>
+          <div class="detail-copy">
+            <p>
+              O Gerentevent foi construído em dupla. <strong>Livia Gundelach</strong> atuou como <strong>Product Owner</strong>:
+              trouxe a operação real de eventos corporativos para dentro do produto, definiu o que cada tela precisava resolver,
+              validou cada entrega com quem de fato usa a ferramenta e apontou as melhorias que vieram depois do primeiro evento.
+              Boa parte do que existe aqui — do fluxo de convites ao guia de viagem e ao controle de brindes — nasceu dessa leitura
+              funcional.
+            </p>
+            <p>
+              Do meu lado ficaram a arquitetura, o desenvolvimento e a infraestrutura: modelagem do banco e políticas de segurança,
+              frontend, Edge Functions, e-mail transacional e deploy.
+            </p>
+          </div>
+          <ul class="detail-list">
+            <li><strong>Livia Gundelach — Product Owner:</strong> concepção funcional, definição de requisitos, validação com usuários e evolução do produto.</li>
+            <li><strong>Caio Henrique Lopes da Silva — Software Engineer:</strong> arquitetura, desenvolvimento full-stack, segurança de dados e operação.</li>
+          </ul>
+        </section>
+
+        <section class="detail-section" aria-labelledby="status-title">
+          <div class="detail-section-header">
+            <span>10</span>
             <h2 id="status-title">Status do Projeto</h2>
           </div>
           <div class="detail-copy">
